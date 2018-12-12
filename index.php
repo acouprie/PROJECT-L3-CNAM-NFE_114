@@ -16,8 +16,6 @@
 
 		<link rel="stylesheet" href="scripts/style.css">
 
-        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -34,12 +32,12 @@
 					<li><a href="index.php" class="current">Accueil</a></li>
 				</ul>
                 <div class="login">
-                    <form action="/register">
+                    <form action="register.php">
                         <input type="submit" value="S'enregistrer" />
                     </form>
                 </div>
                 <div class="login">
-                    <form action="cible.php" method="post">
+                    <form action="index.php" method="post">
                         email : <input type="text" name="mail" />
                         mot de passe : <input type="password" name="password" />
                         <input type="submit" value="Connection" />
@@ -59,27 +57,25 @@
 		<section class="mainSection">
 
 			<h1><span class=tabulation></span>Qui sommes-nous ?</h1>
-			<p><span class=tabulation></span>Nous sommes une start-up avec une idée révolutionnaire : créer un site web où chacun pourra y déposer sa liste de souhait de cadeaux de Noël, les autres utilisateurs n'auront qu'à choisir dans la liste un cadeau à offrir et seront avertis si une idée est prise ce qui évitera d'offrir plusieurs fois le même cadeau. Une idée révolutionnaire on vous dit, connectez vous sans attendre !</p>
+            <p>
+                <span class=tabulation></span>Nous sommes une start-up avec une idée révolutionnaire : créer un site web où chacun pourra y déposer sa liste de souhait de cadeaux de Noël, les autres utilisateurs n'auront qu'à choisir dans la liste un cadeau à offrir et seront avertis si une idée est prise ce qui évitera d'offrir plusieurs fois le même cadeau.<br />
+                <span class=tabulation></span>Une idée révolutionnaire on vous dit, connectez vous sans attendre !
+            </p>
 
 		</section>
 
 		<!-- aside left -->
 		<aside class="asideG">
 
-			<!-- block dashed presentation -->
-			<div id=presentation>
-
-                * Ma super liste *<br />
-				<ul id="wishlist-example">
-                    <li><input type="checkbox" name="poney" />Un poney</li>
-                    <li><input type="checkbox" name="sabre" checked />Un sabre laser</li>
-                    <li><input type="checkbox" name="poupée" checked />Une maison de poupée</li>
-                    <li><input type="checkbox" name="amour" />L'amour</li>
-                    <li><input type="checkbox" name="jet" checked />Un jet privé</li>
-                    <li><input type="checkbox" name="poulpe" checked />Un poulpe</li>
-				</ul>
-
-			</div>
+            <span class=tabulation>* Ma super liste *<br />
+    		<ul id="wishlist-example">
+                <li><input type="checkbox" name="poney" />Un poney</li>
+                <li><input type="checkbox" name="sabre" checked />Un sabre laser</li>
+                <li><input type="checkbox" name="poupée" checked />Une maison de poupée</li>
+                <li><input type="checkbox" name="amour" />L'amour</li>
+                <li><input type="checkbox" name="jet" checked />Un jet privé</li>
+                <li><input type="checkbox" name="poulpe" checked />Un poulpe</li>
+    		</ul>
 
 		</aside>
 

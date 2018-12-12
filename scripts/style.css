@@ -81,7 +81,7 @@ a{
 
 		line-height:18px;
 		border-radius:15px;
-		margin:25px 50px 0 50px;}
+		margin:25px 50px 50px 50px;}
 
 	.asideG{
 		color:#FFFFFF;
@@ -188,7 +188,7 @@ a{
 .mainSection{
 	background-color:#e1e1e1;
 	text-align:justify;
-	margin:50px 25% 0 25%;
+	margin:50px 25% 50px 25%;
 	padding:10px 20px 10px 20px;
 	display: inline-block;
 	line-height:18px;
@@ -227,7 +227,6 @@ a{
 	margin:0 25% 0 25%;}
 
 .banniere{
-	border-radius:15px;
 	width:100%;}
 
 .restricted{
@@ -393,6 +392,15 @@ nav .current {
 	list-style-type:none;
 }
 
+#register {
+	width: 500px;
+	text-align: initial;
+}
+
+#register input {
+	width: 100%;
+	clear: both;
+}
 /*---------------------
 --- THIS IS THE END ---
 ---------------------*/
