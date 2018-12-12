@@ -1,0 +1,398 @@
+/*------------------------------
+--- Auteur : Antoine Couprie ---
+------------------------------*/
+
+/*-----------
+--- START ---
+-----------*/
+
+/*----------
+--- body ---
+----------*/
+
+html, body {
+	color: rgb(150,0,0);
+
+	background-color:#ffffff;
+	background-position:absolute;
+	background-size: cover;
+
+	width: 100%;
+	height: 100%;
+	margin:0;
+
+	display: list-item;
+	list-style-type:none;
+
+	text-decoration:none;
+	line-height: 1.5;
+
+	font-weight:bold;
+	font-family:"Trebuchet MS", Verdana, sans-serif;
+	font-weight:bold;}
+
+a{
+	color:#002f2f;}
+
+#htPage{
+    position:fixed;
+	right:50px;
+	bottom:50px;
+
+
+	border-radius:15px;
+	padding:5px;
+	border:5px 0 5px 0;
+
+	display:block;
+	background-color:rgb(150,0,0);}
+
+.login{
+	margin-right: 5px;
+	float: right;
+}
+
+/*----------------------
+--- max-width: 320px ---
+----------------------*/
+
+@media screen and (min-width: 320px)
+{
+	body{
+		margin: 0px;
+		padding: 0px;
+		outline: 0px;
+		font-size:70%;
+	}
+
+	.body {
+	margin:50px 10% 50px 10%;
+	background-color:#e1e1e1;
+	padding:5px 25px 5px 25px;
+	display:block;
+	line-height:18px;
+	border-radius:15px;}
+
+	.mainSection{
+		background-color:#e1e1e1;
+		text-align:justify;
+		padding:10px 20px 10px 20px;
+		display: inline-block;
+
+		line-height:18px;
+		border-radius:15px;
+		margin:25px 50px 0 50px;}
+
+	.asideG{
+		color:#FFFFFF;
+		border-radius:15px;
+		position: absolute;
+		display: block;
+		background-color:rgb(150, 0, 0);
+		padding:10px 10px 10px 10px;
+	}
+
+	.asideD {
+		visibility: hidden;
+	}
+
+	.toggleSubMenu{
+		border-radius:15px;
+		margin:50px 2% 50px 2%;
+		background-color:#e1e1e1;
+		padding:20px 1px 20px 1px;
+		display:block;
+		line-height:18px;
+		font-size:xx-large;
+		font-weight:bold;
+		text-decoration: none;
+	}
+
+	#Menu{
+		font-size:50%;
+		text-decoration: none;}
+	}
+
+/*----------------------
+--- min-width: 580px ---
+----------------------*/
+
+@media screen and (min-width: 580px)
+{
+	.mainSection{
+		margin-left:50%;}
+
+	body{
+		font-size:80%;
+	}
+
+    .asideG #me{
+		padding:10px;
+	}
+
+	.asideG{
+		position: absolute;
+
+		top: 225px;
+		left:50px;
+		margin:auto;
+
+		display: block;
+		background-color:rgb(150,0,0);
+		width: 30%;
+		padding:10px 10px 10px 10px;
+	}
+
+	.asideD {
+		visibility: hidden;
+	}
+}
+
+/*----------------------
+--- min-width: 768px ---
+----------------------*/
+
+@media screen and (min-width: 768px)
+{
+	body{
+		font-size:100%;
+	}
+
+	.mainSection{
+		display: inline-block;
+		margin-left:50px;}
+
+	.asideG{
+		position: absolute;
+		display: inline-block;
+		left:100px;
+		top:550px;
+		width: 25%;
+		padding:10px;
+	}
+
+	.asideD {
+		visibility: visible;
+		border-radius:15px;
+		position: absolute;
+		color:#FFFFFF;
+		top:550px;
+		height:300px;
+		right:50px;
+		background-color:rgb(150,0,0);
+		padding:10px;
+		text-align:center;
+		width:300px;}
+}
+
+.mainSection{
+	background-color:#e1e1e1;
+	text-align:justify;
+	margin:50px 25% 0 25%;
+	padding:10px 20px 10px 20px;
+	display: inline-block;
+	line-height:18px;
+	border-radius:15px;}
+
+.asideG{
+	top:34%;
+	left:0;
+	display: inline-block;
+	background-color:rgb(150,0,0);
+	width: 20%;
+	padding:10px 10px 10px 10px;
+}
+
+.asideG #me{
+	padding:30px;
+	font-size:100%;
+}
+
+.asideD {
+	visibility: visible;
+	border-radius:15px;
+	position: absolute;
+	color:#FFFFFF;
+	top:34%;
+	right:0;
+	height:300px;
+	width:20%;
+}
+
+/*-----------
+--- corps ---
+-----------*/
+
+#sectiona{
+	margin:0 25% 0 25%;}
+
+.banniere{
+	border-radius:15px;
+	width:100%;}
+
+.restricted{
+	border-radius:15px;
+	width:50%;}
+
+.tabulation{
+	margin-left:3em}
+
+.toggleSubMenu a{
+	color:rgb(150,0,0);}
+
+.toggleMenu{
+	margin-top:25px;
+	padding:25px 0 50px 0;
+	list-style:none;
+	font-size:x-large;
+	text-decoration: none;
+	border-bottom:1px solid rgb(150,0,0);}
+
+.navigation a {
+	text-align:center;
+	display: block;
+	text-decoration: none;
+}
+
+.title{
+	margin:0 10% 0 10%;
+}
+
+h1 {
+	color:#FFFFFF;
+	background-color:rgb(150,0,0);
+	text-align:left;
+	padding:15px;
+	border-radius:15px;
+}
+
+h2{
+	color:#FFFFFF;
+	background-color:rgb(150,0,0);
+	text-align:right;
+	padding:10px;
+	border-radius:15px;
+}
+
+h3{
+	color:#FFFFFF;
+	background-color:rgb(150,0,0);
+	text-align:left;
+	padding:5px;
+	border-radius:15px;
+}
+
+h4{
+	text-decoration:underline;}
+
+#message{
+	padding:50px 100px 50px 250px;
+}
+
+iframe{
+	padding: 0 0 0 25%;
+}
+
+/*------------------
+--- aside gauche ---
+------------------*/
+
+.asideG #photo{
+	position:relative;
+	display:inline-block;
+}
+
+.avatar{
+	filter: brightness(100%);
+        -webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        -o-filter: brightness(100%);
+        -ms-filter: brightness(100%);
+	border-radius:15px;
+
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+    margin-top:10px;
+	width: 50%;}
+
+.asideG:hover{
+	filter: brightness(100%);
+        -webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        -o-filter: brightness(100%);
+        -ms-filter: brightness(100%);}
+
+.asideGcontact #suivi{
+	padding:20px;
+	list-style-type: none;
+}
+
+.asideG #wishlist-example{
+	padding-top:20px;
+	padding-bottom:65px;
+	list-style-type: none;
+}
+
+/*----------------
+--- navigateur ---
+----------------*/
+
+#onglets li
+{
+    float : left;}
+
+nav {
+	padding-top:10px;
+	width:100%;
+	height:64px;
+	background-size:cover;
+	z-index: 10;
+	list-style:none;}
+
+nav a:hover, a:focus{
+	filter: brightness(100%);
+        -webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        -o-filter: brightness(100%);
+        -ms-filter: brightness(100%);
+	margin:3px 2px 3px 2px;}
+
+nav a
+{
+	filter: brightness(70%);
+		-webkit-filter: brightness(70%);
+        -moz-filter: brightness(70%);
+        -o-filter: brightness(70%);
+        -ms-filter: brightness(70%);
+
+	margin: 5px 2px 5px 2px;
+
+	border-radius:15px;
+
+	border:5px 0 5px 0;
+	padding:3px 10px 3px 10px;
+	display:block;
+	font-weight:bold;
+	list-style-type:none;
+	text-decoration:none;
+	color:#FFFFFF;
+	background-color:rgb(150,0,0);}
+
+nav .current {
+	filter: brightness(100%);
+		-webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        -o-filter: brightness(100%);
+        -ms-filter: brightness(100%);
+	color:rgb(150,0,0);
+	background-color:#e1e1e1;
+}
+
+#onglets li{
+	list-style-type:none;
+}
+
+/*---------------------
+--- THIS IS THE END ---
+---------------------*/
