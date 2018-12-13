@@ -27,33 +27,39 @@
 	<body>
 		<header>
 
+			<?php
+				if(isset($_GET['login']) && $_GET['login'] == 'false')
+				{
+        			echo "Mauvais e-mail et/ou mot de passe";
+				}
+			?>
 			<nav>
 				<ul id="onglets">
 					<li><a href="index.php" class="current">Accueil</a></li>
 				</ul>
                 <div class="login">
-                    <form action="register.php">
+                    <form action="register.html">
                         <input type="submit" value="S'enregistrer" />
                     </form>
                 </div>
                 <div class="login">
-                    <form action="index.php" method="post">
-                        email : <input type="text" name="mail" />
-                        mot de passe : <input type="password" name="password" />
-                        <input type="submit" value="Connection" />
+                    <form action="login.php" method="post">
+                        email : <input type="text" name="mail" autofocus required />
+                        mot de passe : <input type="password" name="password" required />
+                        <input type="submit" value="Connexion" />
                     </form>
                 </div>
 			</nav>
 
 		</header>
 
-		<!-- central top -->
+		<!-- central top image -->
 		<div id="sectiona">
 			<img src="images/santa_rodolf.jpg" class="banniere" alt="banniere"/>
 		</div>
 
 
-			<!-- central bottom -->
+		<!-- central bottom presentation -->
 		<section class="mainSection">
 
 			<h1><span class=tabulation></span>Qui sommes-nous ?</h1>
@@ -64,7 +70,7 @@
 
 		</section>
 
-		<!-- aside left -->
+		<!-- aside left list example -->
 		<aside class="asideG">
 
             <span class=tabulation>* Ma super liste *<br />
