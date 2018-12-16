@@ -38,7 +38,7 @@
 					<li><a href="index.php" class="current">Accueil</a></li>
 				</ul>
                 <div class="login">
-                    <form action="register.html">
+                    <form action="register.php">
                         <input type="submit" value="S'enregistrer" />
                     </form>
                 </div>
