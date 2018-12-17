@@ -7,6 +7,7 @@ function DisplayError()
     echo "Une erreur est survenue, veuillez rééssayer. <br />
           Si l'erreur persiste, contactez l'administrateur à admin@example.com";
 }
+
 function ValidateMail($mail)
 {
     if (isset($mail) &&
@@ -103,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
     processRegistration($_POST['mail'],
                         $_POST['pseudo'],
                         $_POST['password']);
+    header('Location: index.php');
     exit();
 }
 ?>

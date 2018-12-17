@@ -1,3 +1,10 @@
+<?php
+if(isset($_GET['login']) && $_GET['login'] == 'false')
+{
+    echo "Mauvais e-mail et/ou mot de passe";
+}
+?>
+
 <!-- Auteur : Antoine Couprie -->
 
 <!-- START -->
@@ -27,12 +34,6 @@
 	<body>
 		<header>
 
-			<?php
-				if(isset($_GET['login']) && $_GET['login'] == 'false')
-				{
-        			echo "Mauvais e-mail et/ou mot de passe";
-				}
-			?>
 			<nav>
 				<ul id="onglets">
 					<li><a href="index.php" class="current">Accueil</a></li>
@@ -62,10 +63,10 @@
 		<!-- central bottom presentation -->
 		<section class="mainSection">
 
-			<h1><span class=tabulation></span>Qui sommes-nous ?</h1>
+			<h1><span class=tabulation /></span>Qui sommes-nous ?</h1>
             <p>
-                <span class=tabulation></span>Nous sommes une start-up avec une idée révolutionnaire : créer un site web où chacun pourra y déposer sa liste de souhait de cadeaux de Noël, les autres utilisateurs n'auront qu'à choisir dans la liste un cadeau à offrir et seront avertis si une idée est prise ce qui évitera d'offrir plusieurs fois le même cadeau.<br />
-                <span class=tabulation></span>Une idée révolutionnaire on vous dit, connectez vous sans attendre !
+                <span class=tabulation /></span>Nous sommes une start-up avec une idée révolutionnaire : créer un site web où chacun pourra y déposer sa liste de souhait de cadeaux de Noël, les autres utilisateurs n'auront qu'à choisir dans la liste un cadeau à offrir et seront avertis si une idée est prise ce qui évitera d'offrir plusieurs fois le même cadeau.<br />
+                <span class=tabulation /></span>Une idée révolutionnaire on vous dit, connectez vous sans attendre !
             </p>
 
 		</section>
@@ -73,7 +74,7 @@
 		<!-- aside left list example -->
 		<aside class="asideG">
 
-            <span class=tabulation>* Ma super liste *<br />
+            <span class=tabulation />* Ma super liste *<br />
     		<ul id="wishlist-example">
                 <li><input type="checkbox" name="poney" />Un poney</li>
                 <li><input type="checkbox" name="sabre" checked />Un sabre laser</li>
