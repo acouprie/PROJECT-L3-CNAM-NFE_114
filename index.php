@@ -22,6 +22,8 @@ if(isset($_GET['login']) && $_GET['login'] == 'false')
 		<meta charset="utf-8" />
 
 		<link rel="stylesheet" href="scripts/style.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/extand_aside.js"></script>
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -50,40 +52,24 @@ if(isset($_GET['login']) && $_GET['login'] == 'false')
 
 		</header>
 
-		<!-- central top image -->
-		<div id="sectiona">
-			<img src="images/santa_rodolf.jpg" class="banniere" alt="banniere"/>
-		</div>
-
-
-		<!-- central bottom presentation -->
-		<section class="mainSection">
-
-			<h1><span class=tabulation /></span>Qui sommes-nous ?</h1>
-            <p>
-                <span class=tabulation /></span>Nous sommes une start-up avec une idée révolutionnaire : créer un site web où chacun pourra y déposer sa liste de souhait de cadeaux de Noël, les autres utilisateurs n'auront qu'à choisir dans la liste un cadeau à offrir et seront avertis si une idée est prise ce qui évitera d'offrir plusieurs fois le même cadeau.<br />
-                <span class=tabulation /></span>Une idée révolutionnaire on vous dit, connectez vous sans attendre !
-            </p>
-
-		</section>
+		<div>
 
 		<!-- aside left list example -->
-		<aside class="asideG">
+		<aside id="asideLeft">
 
-            <span class=tabulation />* Ma super liste *<br />
-    		<ul id="wishlist-example">
-                <li><input type="checkbox" name="poney" />Un poney</li>
-                <li><input type="checkbox" name="sabre" checked />Un sabre laser</li>
-                <li><input type="checkbox" name="poupée" checked />Une maison de poupée</li>
-                <li><input type="checkbox" name="amour" />L'amour</li>
-                <li><input type="checkbox" name="jet" checked />Un jet privé</li>
-                <li><input type="checkbox" name="poulpe" checked />Un poulpe</li>
-    		</ul>
+           <img src="images/list-example.png" id="wishlist-example" alt="wishlist-example"/>
 
 		</aside>
 
+		<!-- central top image -->
+		<div id="banner">
+			<div class="content">
+				<img src="images/santa_rodolf.jpg" class="banniere" alt="banniere"/>
+			</div>
+		</div>
+
 		<!-- aside right sites marchands -->
-		<aside class="asideD">
+		<aside id="asideRight">
 
             Sites marchands :<br />
             <br />
@@ -97,7 +83,19 @@ if(isset($_GET['login']) && $_GET['login'] == 'false')
             <a href="http://www.boulanger.com"><img src="images/boulanger.png" alt="boulanger">
             <br />
 		</aside>
+		</div>
 
+
+		<!-- central bottom presentation -->
+		<section class="mainSection">
+
+			<h1><span class=tabulation /></span>Qui sommes-nous ?</h1>
+            <p>
+                <span class=tabulation /></span>Nous sommes une start-up avec une idée révolutionnaire : créer un site web où chacun pourra y déposer sa liste de souhait de cadeaux de Noël, les autres utilisateurs n'auront qu'à choisir dans la liste un cadeau à offrir et seront avertis si une idée est prise ce qui évitera d'offrir plusieurs fois le même cadeau.<br />
+                <span class=tabulation /></span>Une idée révolutionnaire on vous dit, connectez vous sans attendre !
+            </p>
+
+		</section>
 	</body>
 
 </html>

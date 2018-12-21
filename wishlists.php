@@ -94,12 +94,12 @@ require("bdd_connection.php");
 		</section>
 
 		<!-- aside left list example -->
-		<aside class="asideG">
+		<aside class="asideLeft">
         <a href="my_wishlist/new">Créer une liste de souhait</a>
 		</aside>
 
 		<!-- aside right sites marchands -->
-		<aside class="asideD">
+		<aside class="asideRight">
 
 		</aside>
 
