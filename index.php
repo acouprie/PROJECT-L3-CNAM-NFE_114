@@ -37,14 +37,10 @@ if(isset($_GET['login']) && $_GET['login'] == 'false')
 			<nav>
 				<ul id="onglets">
 					<li><a href="index.php" class="current">Accueil</a></li>
+					<li><a href="users/register.php">S'enregistrer</a></li>
 				</ul>
                 <div class="login">
-                    <form action="register.php">
-                        <input type="submit" value="S'enregistrer" />
-                    </form>
-                </div>
-                <div class="login">
-                    <form action="login.php" method="post">
+                    <form action="users/login.php" method="post">
                         email : <input type="text" name="mail" autofocus required />
                         mot de passe : <input type="password" name="password" required />
                         <input type="submit" value="Connexion" />

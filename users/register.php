@@ -1,6 +1,6 @@
 <?php
-require("bdd_connection.php");
-require("register.html");
+require("../bdd_connection.php");
+require("./register.html");
 
 function DisplayError()
 {
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
     processRegistration($_POST['mail'],
                         $_POST['pseudo'],
                         $_POST['password']);
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit();
 }
 ?>

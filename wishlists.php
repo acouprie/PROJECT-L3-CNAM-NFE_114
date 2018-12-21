@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (!isset($_SESSION['id']) ||
+    !isset($_SESSION['pseudo']) ||
+    !isset($_SESSION['mail']))
+{
+  header('Location: index.php');
+}
 require("bdd_connection.php");
 ?>
 
@@ -16,7 +22,7 @@ require("bdd_connection.php");
 		<meta name="copyleft" content="Antoine COUPRIE - 2018" />
 		<meta name="description" content="Site de partage de liste de souhait de Noël" />
 		<meta name="keywords" content="noël christmas liste souhait wish list" />
-		<meta name="viewport"	 content="width=device-width, user-scalable=no"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no"/>
 		<meta charset="utf-8" />
 
 		<link rel="stylesheet" href="scripts/style.css">
@@ -36,7 +42,7 @@ require("bdd_connection.php");
 				<ul id="onglets">
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="wishlists.php" class="current">Listes de souhait</a></li>
-					<li><a href="disconnect.php">Disconnect</a></li>
+					<li><a href="users/disconnect.php">Disconnect</a></li>
 				</ul>
 			</nav>
 

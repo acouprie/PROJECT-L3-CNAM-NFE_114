@@ -375,8 +375,8 @@ nav a
 	font-weight:bold;
 	list-style-type:none;
 	text-decoration:none;
-	color:#FFFFFF;
-	background-color:rgb(150,0,0);}
+	color:rgb(150,0,0);
+	background-color:#e1e1e1;}
 
 nav .current {
 	filter: brightness(100%);
@@ -384,8 +384,8 @@ nav .current {
         -moz-filter: brightness(100%);
         -o-filter: brightness(100%);
         -ms-filter: brightness(100%);
-	color:rgb(150,0,0);
-	background-color:#e1e1e1;
+	color:#e1e1e1;
+	background-color:rgb(150,0,0);
 }
 
 #onglets li{

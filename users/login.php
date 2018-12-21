@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("bdd_connection.php");
+require("../bdd_connection.php");
 
 if (isset($_POST['mail']) && isset($_POST['password']))
 {
@@ -12,17 +12,17 @@ if (isset($_POST['mail']) && isset($_POST['password']))
         $_SESSION['id'] = $donnees['id'];
         $_SESSION['pseudo'] = $donnees['pseudo'];
         $_SESSION['mail'] = $_POST['mail'];
-        header('Location: wishlists.php');
+        header('Location: ../wishlists.php');
     }
     else
     {
-        header('Location: index.php?login=false');
+        header('Location: ../index.php?login=false');
         exit();
     }
 }
 else
 {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit();
 }
 ?>
