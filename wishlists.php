@@ -14,9 +14,7 @@ require("bdd_connection.php");
 <!-- START -->
 
 <html>
-
 	<head>
-
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="Antoine COUPRIE" />
 		<meta name="copyleft" content="Antoine COUPRIE - 2018" />
@@ -24,20 +22,14 @@ require("bdd_connection.php");
 		<meta name="keywords" content="noël christmas liste souhait wish list" />
 		<meta name="viewport" content="width=device-width, user-scalable=no"/>
 		<meta charset="utf-8" />
-
 		<link rel="stylesheet" href="scripts/style.css">
-
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-
 		<title>My Wishlists</title>
-
 	</head>
-
 	<body>
 		<header>
-
 			<nav>
 				<ul id="onglets">
 					<li><a href="index.php">Accueil</a></li>
@@ -45,66 +37,32 @@ require("bdd_connection.php");
 					<li><a href="users/disconnect.php">Disconnect</a></li>
 				</ul>
 			</nav>
-
 		</header>
 
 		<section class="mainSection">
-        <?php
-            echo "<span class=tabulation /> Bienvenue " . $_SESSION['pseudo'];
-        ?>
-        <br />
-        <br />
-        Mes listes de souhaits :
-        <?php
-        $request = $pdo->prepare('SELECT name FROM wishlist WHERE user_id = ?');
-        $request->execute(array($_SESSION['id']));
-        echo "<ul>";
-        while ($donnees = $request->fetch())
-        {
-        ?>
-            <li>
-                <?php echo $donnees['name']; ?>
-            </li>
-        <?php
-        }
-        $request->closeCursor();
-        ?>
-        </ul>
-        <br />
-        Les listes de souhaits des autres utilisateurs :
-        <?php
-        $request = $pdo->prepare('SELECT pseudo, name FROM wishlist INNER JOIN user ON user.id = wishlist.user_id WHERE user_id != ?');
-        $request->execute(array($_SESSION['id']));
-        echo "<ul>";
-        while ($donnees = $request->fetch())
-        {
-        ?>
-            <li>
-                <?php echo $donnees['pseudo']; ?>
-                <br />
-                <?php echo $donnees['name']; ?>
-            </li>
-        <?php
-        }
-        $request->closeCursor();
-        ?>
-        </ul>
-        <br />
-
+            <?php
+            echo "<span class=tabulation /> Bienvenue " . $_SESSION['pseudo'] . " !</span><p>";
+            $request = $pdo->prepare('SELECT name FROM wishlist WHERE user_id = ?');
+            $request->execute(array($_SESSION['id']));
+            echo "Mes listes de souhaits :<ul>";
+            while ($row = $request->fetch())
+            {
+                echo "<li>" . $row['name'] . "</li>";
+            }
+            $request->closeCursor();
+            echo "</ul><form action='wishlist/new.php'><input id='new_wishlist_button' type='submit' value='>> Créer une nouvelle liste de souhait <<' /></form></p>";
+            $request = $pdo->prepare('SELECT pseudo, name FROM wishlist INNER JOIN user ON user.id = wishlist.user_id WHERE user_id != ?');
+            $request->execute(array($_SESSION['id']));
+            echo "Les listes de souhaits des autres utilisateurs :<ul>";
+            while ($row = $request->fetch())
+            {
+                echo "<li>" . $row['name'] . " de " . $row['pseudo'] . "</li>";
+            }
+            $request->closeCursor();
+            echo "</ul>";
+            ?>
 		</section>
-
-		<!-- aside left list example -->
-		<aside class="asideLeft">
-        <a href="my_wishlist/new">Créer une liste de souhait</a>
-		</aside>
-
-		<!-- aside right sites marchands -->
-		<aside class="asideRight">
-
-		</aside>
-
 	</body>
-
 </html>
 
 <!-- THIS IS THE END -->

@@ -316,6 +316,10 @@ nav .current {
 	width: 100%;
 	clear: both;
 }
+
+#new_wishlist_button {
+	margin: 0 25% 0 25%;
+}
 /*---------------------
 --- THIS IS THE END ---
 ---------------------*/
