@@ -4,7 +4,7 @@ function validateEmail(email) {
 }
 
 function validateRegisterForm() {
-  var form = document.forms["register"]
+  var form = document.forms["new_wishlist"]
   var mail = form["mail"].value;
   var name = form["pseudo"].value;
   var pwd = form["password"].value;

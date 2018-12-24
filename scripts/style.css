@@ -165,7 +165,8 @@ a{
 	padding:10px 20px 10px 20px;
 	display: inline-block;
 	line-height:18px;
-	border-radius:15px;}
+	border-radius:15px;
+	width: 40%;}
 
 
 
@@ -313,6 +314,16 @@ nav .current {
 }
 
 #register input {
+	width: 100%;
+	clear: both;
+}
+
+#new_wishlist {
+	width: 500px;
+	text-align: initial;
+}
+
+#new_wishlist input {
 	width: 100%;
 	clear: both;
 }

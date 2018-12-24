@@ -40,26 +40,26 @@ require("bdd_connection.php");
 		</header>
 
 		<section class="mainSection">
-            <?php
+			<?php
             echo "<span class=tabulation /> Bienvenue " . $_SESSION['pseudo'] . " !</span><p>";
-            $request = $pdo->prepare('SELECT name FROM wishlist WHERE user_id = ?');
+            $request = $pdo->prepare('SELECT id, name FROM wishlist WHERE user_id = ?');
             $request->execute(array($_SESSION['id']));
-            echo "Mes listes de souhaits :<ul>";
+            echo "- Mes listes de souhaits :<ul>";
             while ($row = $request->fetch())
             {
-                echo "<li>" . $row['name'] . "</li>";
+                echo "<li><a href='wishlist/show.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></li>";
             }
-            $request->closeCursor();
             echo "</ul><form action='wishlist/new.php'><input id='new_wishlist_button' type='submit' value='>> Créer une nouvelle liste de souhait <<' /></form></p>";
-            $request = $pdo->prepare('SELECT pseudo, name FROM wishlist INNER JOIN user ON user.id = wishlist.user_id WHERE user_id != ?');
+			$request->closeCursor();
+            $request = $pdo->prepare('SELECT wishlist.id, pseudo, name FROM wishlist INNER JOIN user ON user.id = wishlist.user_id WHERE user_id != ?');
             $request->execute(array($_SESSION['id']));
-            echo "Les listes de souhaits des autres utilisateurs :<ul>";
+            echo "- Les listes de souhaits des autres utilisateurs :<ul>";
             while ($row = $request->fetch())
             {
-                echo "<li>" . $row['name'] . " de " . $row['pseudo'] . "</li>";
+                echo "<li><a href='wishlist/show.php?id=" . $row['id'] . "'>" . $row['name'] . "</a> de " . $row['pseudo'] . "</li>";
             }
-            $request->closeCursor();
             echo "</ul>";
+            $request->closeCursor();
             ?>
 		</section>
 	</body>
