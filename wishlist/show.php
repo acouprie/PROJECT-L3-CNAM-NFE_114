@@ -30,7 +30,7 @@ require("../bdd_connection.php");
 		<script type="text/javascript" src="../scripts/reserve_wish.js"></script>
 
 		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
 		<title>Nouvelle liste de souhait</title>

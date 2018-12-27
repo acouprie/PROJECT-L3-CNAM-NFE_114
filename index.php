@@ -73,14 +73,14 @@ if(isset($_GET['login']) && $_GET['login'] == 'false')
 
             Sites marchands :<br />
             <br />
-            <a href="http://www.amazon.fr"><img src="images/amazon.png" alt="amazon"></a>
-            <a href="http://www.cdiscount.com"><img src="images/cdiscount.jpg" alt="cdiscount"></a>
+            <a href="https://www.amazon.fr/"><img src="images/amazon.png" alt="amazon"></a>
+            <a href="https://www.cdiscount.com/"><img src="images/cdiscount.jpg" alt="cdiscount"></a>
             <br />
-            <a href="http://www.priceminister.fr"><img src="images/priceminister.png" alt="priceminister"></a>
-            <a href="http://www.rueducommerce.fr"><img src="images/ruecommerce.png" alt="rue du commerce"></a>
+            <a href="https://fr.shopping.rakuten.com/"><img src="images/priceminister.png" alt="priceminister"></a>
+            <a href="https://www.rueducommerce.fr/"><img src="images/ruecommerce.png" alt="rue du commerce"></a>
             <br />
-            <a href="http://www.fnac.fr"><img src="images/fnac.png" alt="fnac"></a>
-            <a href="http://www.boulanger.com"><img src="images/boulanger.png" alt="boulanger"></a>
+            <a href="https://www.fnac.com/"><img src="images/fnac.png" alt="fnac"></a>
+            <a href="https://www.boulanger.com/"><img src="images/boulanger.png" alt="boulanger"></a>
             <br />
 		</aside>
 		</div>

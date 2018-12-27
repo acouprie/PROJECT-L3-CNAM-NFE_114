@@ -24,7 +24,7 @@ require("bdd_connection.php");
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="scripts/style.css">
 		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<title>My Wishlists</title>
 	</head>
