@@ -22,7 +22,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false')
 		<meta charset="utf-8" />
 
 		<link rel="stylesheet" href="scripts/style.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script type="text/javascript" src="scripts/extand_aside.js"></script>
 
 		<!--[if lt IE 9]>
@@ -73,14 +73,14 @@ if(isset($_GET['login']) && $_GET['login'] == 'false')
 
             Sites marchands :<br />
             <br />
-            <a href="http://www.amazon.fr"><img src="images/amazon.png" alt="amazon">
-            <a href="http://www.cdiscount.com"><img src="images/cdiscount.jpg" alt="cdiscount">
+            <a href="http://www.amazon.fr"><img src="images/amazon.png" alt="amazon"></a>
+            <a href="http://www.cdiscount.com"><img src="images/cdiscount.jpg" alt="cdiscount"></a>
             <br />
-            <a href="http://www.priceminister.fr"><img src="images/priceminister.png" alt="priceminister">
-            <a href="http://www.rueducommerce.fr"><img src="images/ruecommerce.png" alt="rue du commerce">
+            <a href="http://www.priceminister.fr"><img src="images/priceminister.png" alt="priceminister"></a>
+            <a href="http://www.rueducommerce.fr"><img src="images/ruecommerce.png" alt="rue du commerce"></a>
             <br />
-            <a href="http://www.fnac.fr"><img src="images/fnac.png" alt="fnac">
-            <a href="http://www.boulanger.com"><img src="images/boulanger.png" alt="boulanger">
+            <a href="http://www.fnac.fr"><img src="images/fnac.png" alt="fnac"></a>
+            <a href="http://www.boulanger.com"><img src="images/boulanger.png" alt="boulanger"></a>
             <br />
 		</aside>
 		</div>

@@ -26,7 +26,7 @@ require("../bdd_connection.php");
 
 		<link rel="stylesheet" href="../scripts/style.css">
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script type="text/javascript" src="../scripts/reserve_wish.js"></script>
 
 		<!--[if lt IE 9]>
