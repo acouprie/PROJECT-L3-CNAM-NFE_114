@@ -26,6 +26,9 @@ require("../bdd_connection.php");
 
 		<link rel="stylesheet" href="../scripts/style.css">
 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="../scripts/reserve_wish.js"></script>
+
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -47,12 +50,36 @@ require("../bdd_connection.php");
 		<section class="mainSection">
             <?php
             $wishlist_id = $_GET['id'];
-            $request = $pdo->prepare('SELECT wishlist.name, wish.name FROM wishlist INNER JOIN wish ON wish.wishlist_id = wishlist.id WHERE wish.wishlist_id = ?');
-            $request->execute(array($wishlist_id));
+            $request = $pdo->prepare('SELECT wish.id, wish.name, wishlist.user_id, wish.reserved_by, user.pseudo FROM wish INNER JOIN wishlist ON wish.wishlist_id = wishlist.id LEFT JOIN user ON wish.reserved_by = user.id WHERE wish.wishlist_id = ?');
+			$request->execute(array($wishlist_id));
+
+            $wishlist_name = $pdo->prepare('SELECT name FROM wishlist WHERE wishlist.id = ?');
+			$wishlist_name->execute(array($wishlist_id));
+			echo $wishlist_name->fetch()['name'];
+			$wishlist_name->closeCursor();
+
             echo "<ul>";
             while ($row = $request->fetch())
             {
-                echo "<li>" . $row['name'] . "</li>";
+				if ($row['user_id'] == $_SESSION['id'])
+				{
+					echo "<li>".$row['name']."</li>";
+				}
+				elseif (isset($row['reserved_by']))
+				{
+					if ($row['reserved_by'] == $_SESSION['id'])
+					{
+						echo "<li id='list_".$row['id']."'>".$row['name']."<span class='tabulation' /><input id='checkbox_".$row['id']."' type='checkbox' checked='checked' onclick=\"reserve_wish('remove','".$_SESSION['pseudo']."','".$row['name']."',".$row['id'].");\" />Reservé par vous";
+					}
+					else
+					{
+						echo "<li id='list_".$row['id']."'>".$row['name']."<span class='tabulation' /><input id='checkbox_".$row['id']."' type='checkbox' checked='checked' disabled='disabled' />Reservé par ".$row['pseudo'];
+					}
+				}
+				else
+				{
+					echo "<li id='list_".$row['id']."'>".$row['name']."<span class='tabulation' /><input type='checkbox' onclick=\"reserve_wish('reserve','".$_SESSION['pseudo']."','".$row['name']."',".$row['id'].");\"/>Réservez le !</li>";
+				}
             }
             echo "</ul>";
             $request->closeCursor();
