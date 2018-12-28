@@ -1,6 +1,7 @@
 <?php
 require("../bdd_connection.php");
 session_start();
+# Reserve a wish by a user
 if ($_GET['action'] == 'reserve')
 {
     $request = $pdo->prepare('UPDATE wish SET reserved_by = :reserved_by WHERE ID = :id');
@@ -10,6 +11,7 @@ if ($_GET['action'] == 'reserve')
         ));
     echo "reserved!";
 }
+# Remove reservation of a wish by a user
 elseif ($_GET['action'] == 'remove')
 {
     $request = $pdo->prepare('UPDATE wish SET reserved_by = NULL WHERE ID = :id');

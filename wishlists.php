@@ -41,7 +41,9 @@ require("bdd_connection.php");
 
 		<section class="mainSection">
 			<?php
-            echo "<span class=tabulation /> Bienvenue " . $_SESSION['pseudo'] . " !</span><p>";
+			echo "<span class=tabulation /> Bienvenue " . $_SESSION['pseudo'] . " !</span><p>";
+
+			# Display the wishlists of the current user
             $request = $pdo->prepare('SELECT id, name FROM wishlist WHERE user_id = ?');
             $request->execute(array($_SESSION['id']));
             echo "- Mes listes de souhaits :<ul>";
@@ -51,6 +53,8 @@ require("bdd_connection.php");
             }
             echo "</ul><form action='wishlist/new.php'><input id='new_wishlist_button' type='submit' value='>> Créer une nouvelle liste de souhait <<' /></form></p>";
 			$request->closeCursor();
+
+			# Display the wishlists of the other users
             $request = $pdo->prepare('SELECT wishlist.id, pseudo, name FROM wishlist INNER JOIN user ON user.id = wishlist.user_id WHERE user_id != ?');
             $request->execute(array($_SESSION['id']));
             echo "- Les listes de souhaits des autres utilisateurs :<ul>";

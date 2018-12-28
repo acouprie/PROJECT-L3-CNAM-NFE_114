@@ -33,7 +33,7 @@ require("../bdd_connection.php");
 			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<title>Nouvelle liste de souhait</title>
+		<title>Liste <?php $_GET['id'] ?></title>
 	</head>
 
 	<body>
@@ -49,24 +49,30 @@ require("../bdd_connection.php");
 
 		<section class="mainSection">
             <?php
-            $wishlist_id = $_GET['id'];
-            $request = $pdo->prepare('SELECT wish.id, wish.name, wishlist.user_id, wish.reserved_by, user.pseudo FROM wish INNER JOIN wishlist ON wish.wishlist_id = wishlist.id LEFT JOIN user ON wish.reserved_by = user.id WHERE wish.wishlist_id = ?');
-			$request->execute(array($wishlist_id));
+			$wishlist_id = $_GET['id'];
 
+			# Get the name of the wishlist
             $wishlist_name = $pdo->prepare('SELECT name FROM wishlist WHERE wishlist.id = ?');
 			$wishlist_name->execute(array($wishlist_id));
 			echo $wishlist_name->fetch()['name'];
 			$wishlist_name->closeCursor();
 
-            echo "<ul>";
+			# Get the wishes of the wishlist
+            $request = $pdo->prepare('SELECT wish.id, wish.name, wishlist.user_id, wish.reserved_by, user.pseudo FROM wish INNER JOIN wishlist ON wish.wishlist_id = wishlist.id LEFT JOIN user ON wish.reserved_by = user.id WHERE wish.wishlist_id = ?');
+			$request->execute(array($wishlist_id));
+			echo "<ul>";
+			# Loop into the wishes
             while ($row = $request->fetch())
             {
+				# if wishlist belongs to current user
 				if ($row['user_id'] == $_SESSION['id'])
 				{
 					echo "<li>".$row['name']."</li>";
 				}
+				# else if it is reserved by a user
 				elseif (isset($row['reserved_by']))
 				{
+					# if it is reserved by current user
 					if ($row['reserved_by'] == $_SESSION['id'])
 					{
 						echo "<li id='list_".$row['id']."'>".$row['name']."<span class='tabulation' /><input id='checkbox_".$row['id']."' type='checkbox' checked='checked' onclick=\"reserve_wish('remove','".$_SESSION['pseudo']."','".$row['name']."',".$row['id'].");\" />Reservé par vous";
@@ -76,6 +82,7 @@ require("../bdd_connection.php");
 						echo "<li id='list_".$row['id']."'>".$row['name']."<span class='tabulation' /><input id='checkbox_".$row['id']."' type='checkbox' checked='checked' disabled='disabled' />Reservé par ".$row['pseudo'];
 					}
 				}
+				# Permit reservation of a wish
 				else
 				{
 					echo "<li id='list_".$row['id']."'>".$row['name']."<span class='tabulation' /><input type='checkbox' onclick=\"reserve_wish('reserve','".$_SESSION['pseudo']."','".$row['name']."',".$row['id'].");\"/>Réservez le !</li>";

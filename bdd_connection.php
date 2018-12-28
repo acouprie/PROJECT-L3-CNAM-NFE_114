@@ -1,4 +1,5 @@
 <?php
+# Set up the DB connection assigned to $pdo
 try
 {
     $pdo = new PDO('mysql:host=localhost;dbname=christmas;charset=utf8', 'root', '');

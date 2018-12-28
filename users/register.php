@@ -2,6 +2,7 @@
 require("../bdd_connection.php");
 require("./register.html");
 
+# Default error message
 function DisplayError()
 {
     echo "Une erreur est survenue, veuillez rééssayer. <br />
@@ -51,6 +52,7 @@ function ValidatePassword($pwd, $conf_pwd)
     }
 }
 
+# Check if a user exist
 function UserExist($mail)
 {
     global $pdo;
@@ -66,6 +68,7 @@ function UserExist($mail)
     }
 }
 
+# Register a new user
 function processRegistration($mail, $pseudo, $pwd)
 {
     global $pdo;
@@ -78,6 +81,7 @@ function processRegistration($mail, $pseudo, $pwd)
         ));
 }
 
+# Check the data from the form
 function ValidateFields($mail, $pseudo, $pwd, $conf_pwd)
 {
     if (ValidateMail($mail) &&

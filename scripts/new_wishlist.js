@@ -1,3 +1,4 @@
+// Add or remove fields during wishlist creation
 $(function() {
   var addDiv = $('#addinput');
   var i = $('#addinput p').size() + 1;
@@ -16,6 +17,7 @@ $(function() {
   });
 });
 
+// Validate data for new wishlist creation
 function validateRegisterForm() {
   var form = document.forms["new_wislist"]
   var name = form["name"].value;

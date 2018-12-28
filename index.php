@@ -1,4 +1,5 @@
 <?php
+# handle parameter GET login=false
 if(isset($_GET['login']) && $_GET['login'] == 'false')
 {
     echo "Mauvais e-mail et/ou mot de passe";

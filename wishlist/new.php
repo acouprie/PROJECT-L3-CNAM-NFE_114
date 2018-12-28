@@ -9,6 +9,7 @@ if (!isset($_SESSION['id']) ||
 require("../bdd_connection.php");
 require("./new.html");
 
+# Default error message
 function DisplayError()
 {
     echo "Une erreur est survenue, veuillez rééssayer. <br />
@@ -29,6 +30,7 @@ function ValidateName($name) {
     }
 }
 
+# Extract wishes from form to an array
 function extractWishes()
 {
     $next_wish = true;
@@ -50,6 +52,7 @@ function extractWishes()
     return $wishes;
 }
 
+# Save wishes one by one
 function saveWish($wishlist_id)
 {
     global $pdo;
@@ -78,6 +81,7 @@ function saveWishlist()
     saveWish($wishlist_id);
 }
 
+# Validate form
 function ValidateFields($name)
 {
     if (ValidateName($name))

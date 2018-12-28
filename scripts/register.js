@@ -3,6 +3,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 
+// Validate data from new user creation
 function validateRegisterForm() {
   var form = document.forms["new_wishlist"]
   var mail = form["mail"].value;
