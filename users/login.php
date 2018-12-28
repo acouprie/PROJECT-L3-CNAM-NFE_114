@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("../bdd_connection.php");
+require("../scripts/bdd_connection.php");
 
 # Check the mail & password before creating a PHP session
 if (isset($_POST['mail']) && isset($_POST['password']))

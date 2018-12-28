@@ -6,7 +6,7 @@ if (!isset($_SESSION['id']) ||
 {
   header('Location: index.php');
 }
-require("bdd_connection.php");
+require("scripts/bdd_connection.php");
 ?>
 
 <!-- Auteur : Antoine Couprie -->

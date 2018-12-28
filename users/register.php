@@ -1,5 +1,5 @@
 <?php
-require("../bdd_connection.php");
+require("../scripts/bdd_connection.php");
 require("./register.html");
 
 # Default error message

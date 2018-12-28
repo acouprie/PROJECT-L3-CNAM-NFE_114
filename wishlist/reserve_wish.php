@@ -1,5 +1,5 @@
 <?php
-require("../bdd_connection.php");
+require("../scripts/bdd_connection.php");
 session_start();
 # Reserve a wish by a user
 if ($_GET['action'] == 'reserve')
