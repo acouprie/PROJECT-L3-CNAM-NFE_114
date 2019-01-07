@@ -4,7 +4,7 @@ $(function() {
   var i = $('#addinput p').size() + 1;
 
   $('#addNew').click(function() {
-    $('<p>Souhait n°' + i + ' :<input type="text" class="p_new" name="wish_' + i +'" /><a href="#" id="remNew">Supprimer</a></p>').appendTo(addDiv);
+    $('<p>Souhait n°' + i + ' :<input type="text" class="p_new" name="wish_' + i +'" /></p>').appendTo(addDiv);
     i++;
     return false;
   });

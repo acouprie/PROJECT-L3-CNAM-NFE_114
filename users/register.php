@@ -24,7 +24,7 @@ function ValidateMail($mail)
 
 function ValidatePseudo($pseudo) {
     if (isset($pseudo) &&
-        preg_match("/^[a-zA-Z]*$/",$pseudo) &&
+        preg_match("/^[a-z A-Z]*$/",$pseudo) &&
         strlen($pseudo) > 5 &&
         strlen($pseudo) < 33)
     {
@@ -79,6 +79,7 @@ function processRegistration($mail, $pseudo, $pwd)
         'mail' => $mail,
         'password' => $hash
         ));
+    header('Location: ../index.php');
 }
 
 # Check the data from the form
@@ -108,7 +109,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
     processRegistration($_POST['mail'],
                         $_POST['pseudo'],
                         $_POST['password']);
-    header('Location: ../index.php');
     exit();
 }
 ?>

@@ -18,7 +18,7 @@ function DisplayError()
 
 function ValidateName($name) {
     if (isset($name) &&
-        preg_match("/^[a-zA-Z0-9_.-]*$/",$name) &&
+        preg_match("/^[a-z A-Z0-9_.-]*$/",$name) &&
         strlen($name) > 2 &&
         strlen($name) < 33)
     {
@@ -79,6 +79,7 @@ function saveWishlist()
     $wishlist_id = $request->fetch()['id'];
     $request->closeCursor();
     saveWish($wishlist_id);
+    header('Location: ../wishlists.php');
 }
 
 # Validate form
