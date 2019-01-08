@@ -2,13 +2,6 @@
 require("../scripts/bdd_connection.php");
 require("./register.html");
 
-# Default error message
-function DisplayError()
-{
-    echo "Une erreur est survenue, veuillez rééssayer. <br />
-          Si l'erreur persiste, contactez l'administrateur à admin@example.com";
-}
-
 function ValidateMail($mail)
 {
     if (isset($mail) &&
@@ -18,21 +11,20 @@ function ValidateMail($mail)
     }
     else
     {
-        return false;
+        echo "Erreur relative à l'e-mail. ";
+        exit();
     }
 }
 
 function ValidatePseudo($pseudo) {
-    if (isset($pseudo) &&
-        preg_match("/^[a-z A-Z]*$/",$pseudo) &&
-        strlen($pseudo) > 5 &&
-        strlen($pseudo) < 33)
+    if (isset($pseudo) && preg_match("/^[a-z A-Z0-9_.-]*$/",$pseudo))
     {
         return true;
     }
     else
     {
-        return false;
+        echo "Erreur relative au pseudonyme. ";
+        exit();
     }
 }
 
@@ -41,14 +33,14 @@ function ValidatePassword($pwd, $conf_pwd)
     if (isset($pwd) &&
         isset($conf_pwd) &&
         $pwd == $conf_pwd &&
-        strlen($pwd) > 5 &&
-        strlen($pwd) < 33)
+        preg_match("/^[a-zA-Z0-9!@#\$%\^\&*+=_-]{6,32}$/",$pwd))
     {
         return true;
     }
     else
     {
-        return false;
+        echo "Erreur relative au mot de passe. ";
+        exit();
     }
 }
 
@@ -60,7 +52,8 @@ function UserExist($mail)
     $request->execute(array($mail));
     $count = $request->rowCount();
     if($count > 0) {
-        return true;
+        echo "L'utilisateur existe déjà";
+        exit();
     }
     else
     {
@@ -95,8 +88,7 @@ function ValidateFields($mail, $pseudo, $pwd, $conf_pwd)
     }
     else
     {
-        DisplayError();
-        exit();
+        return false;
     }
 }
 
@@ -106,9 +98,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
                     $_POST['password'],
                     $_POST['conf_password']))
 {
-    processRegistration($_POST['mail'],
-                        $_POST['pseudo'],
-                        $_POST['password']);
+    try
+    {
+        processRegistration($_POST['mail'],
+                            $_POST['pseudo'],
+                            $_POST['password']);
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' . $e->getMessage());
+        echo "Si l'erreur persiste, contactez l'administrateur à admin@example.com";
+    }
     exit();
 }
 ?>

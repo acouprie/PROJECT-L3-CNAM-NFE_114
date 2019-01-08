@@ -16,11 +16,22 @@ function DisplayError()
           Si l'erreur persiste, contactez l'administrateur à admin@example.com";
 }
 
+# Validate the Wishlist name and size
 function ValidateName($name) {
-    if (isset($name) &&
-        preg_match("/^[a-z A-Z0-9_.-]*$/",$name) &&
-        strlen($name) > 2 &&
-        strlen($name) < 33)
+    if (isset($name) && preg_match("/^[a-z A-Z0-9_.-]{2,32}$/",$name))
+    {
+        return true;
+    }
+    else
+    {
+        echo "Le nom doit faire entre 2 et 32 caractères et ne comporter que des lettres, espaces, chiffres et _.-";
+        exit();
+    }
+}
+
+# Validate the wish name and size
+function ValidateWish($wish) {
+    if (isset($wish) && preg_match("/^[a-z A-Z0-9_.-]{2,128}$/",$wish))
     {
         return true;
     }
@@ -38,9 +49,18 @@ function extractWishes()
     $i = 1;
     while ($next_wish)
     {
-        if (isset($_POST['wish_' . $i]))
+        $wish = $_POST['wish_' . $i];
+        if (isset($wish))
         {
-            $wishes[] = $_POST['wish_' . $i];
+            if (validateWish($wish) == true)
+            {
+                $wishes[] = $wish;
+            }
+            else
+            {
+                echo $wish . " est invalide. Il doit faire entre 2 et 128 caractères et ne comporter que des lettres, espaces, chiffres et _.-";
+                exit();
+            }
         }
         else
         {
@@ -48,7 +68,6 @@ function extractWishes()
         }
         $i++;
     }
-
     return $wishes;
 }
 
@@ -91,15 +110,22 @@ function ValidateFields($name)
     }
     else
     {
-        DisplayError();
-        exit();
+        return false;
     }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
     ValidateFields ($_POST['name']))
 {
-    saveWishlist();
+    try
+    {
+        saveWishlist();
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' . $e->getMessage());
+        echo "Si l'erreur persiste, contactez l'administrateur à admin@example.com";
+    }
     exit();
 }
 ?>

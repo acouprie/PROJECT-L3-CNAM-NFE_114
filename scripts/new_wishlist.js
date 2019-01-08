@@ -1,4 +1,4 @@
-// Add or remove fields during wishlist creation
+// Add fields during wishlist creation
 $(function() {
   var addDiv = $('#addinput');
   var i = $('#addinput p').size() + 1;
@@ -8,30 +8,23 @@ $(function() {
     i++;
     return false;
   });
-
-  $('#remNew').click(function() {
-    alert('test');
-    $(this).parents('p').remove();
-    i--;
-    return false;
-  });
 });
+
+function validateName(name) {
+  var re = /^[a-z A-Z0-9_.-]{2,128}$/g
+  return re.test(name);
+}
 
 // Validate data for new wishlist creation
 function validateRegisterForm() {
-  var form = document.forms["new_wislist"]
+  var form = document.forms["new_wishlist"];
   var name = form["name"].value;
-  var wish = form["wish"].value;
   if (name == "") {
     alert("Le nom est obligatoire !");
   	return false;
   }
-  if (name.length > 32 || wish.length > 32) {
-    alert("Les champs ne peuvent pas faire plus de 32 caractères");
-  	return false;
-  }
-  if (name.length < 2) {
-    alert("Les champs ne peuvent pas faire moins de 2 caractères");
+  if (!validateName(name)) {
+    alert("Le nom doit faire entre 2 et 32 caractères et ne comporter que des lettres, espaces, chiffres et _.-");
   	return false;
   }
 }
